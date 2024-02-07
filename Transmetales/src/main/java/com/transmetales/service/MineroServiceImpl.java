@@ -7,6 +7,7 @@ import com.transmetales.repository.MineroRepository;
 import com.transmetales.repository.PersonaRepository;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,8 +44,6 @@ public class MineroServiceImpl implements MineroService {
         }
        
     }
-    
-    
 
     @Override
     public Minero getOne(Integer id) {
@@ -56,6 +55,11 @@ public class MineroServiceImpl implements MineroService {
     public boolean deleteOne(Integer id) {              
         this.personaRepository.deleteById(id);
         return personaRepository.existsById(id);
+    }
+
+    @Override
+    public Optional<Persona> getOneByCedula(String cedula) {
+        return this.personaRepository.findByNumDocumento(cedula);
     }
 
     

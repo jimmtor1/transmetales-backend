@@ -1,14 +1,26 @@
 package com.transmetales.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="barra")
 public class Barra {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer idbarra;
+    @Column(name="id_traslado")
     private Integer idtraslado;
     private Float gramos;
+    @Column(name="ley_plata")
     private Float leyPlata;
-    private Float LeyOro;
+    @Column(name="ley_oro")
+    private Float leyOro;
 
     public Integer getId() {
         return id;
@@ -16,14 +28,6 @@ public class Barra {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getIdbarra() {
-        return idbarra;
-    }
-
-    public void setIdbarra(Integer idbarra) {
-        this.idbarra = idbarra;
     }
 
     public Integer getIdtraslado() {
@@ -51,16 +55,16 @@ public class Barra {
     }
 
     public Float getLeyOro() {
-        return LeyOro;
+        return leyOro;
     }
 
     public void setLeyOro(Float LeyOro) {
-        this.LeyOro = LeyOro;
+        this.leyOro = LeyOro;
     }
 
     @Override
     public String toString() {
-        return "Barra{" + "id=" + id + ", idbarra=" + idbarra + ", idtraslado=" + idtraslado + ", gramos=" + gramos + ", leyPlata=" + leyPlata + ", LeyOro=" + LeyOro + '}';
+        return "Barra{" + "id=" + id + ", idtraslado=" + idtraslado + ", gramos=" + gramos + ", leyPlata=" + leyPlata + ", leyOro=" + leyOro + '}';
     }
         
 }

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BarraRepository extends CrudRepository<Barra, Integer> {
     
+    Iterable<Barra> findByIdtrasladoIsNull();
+    
 }

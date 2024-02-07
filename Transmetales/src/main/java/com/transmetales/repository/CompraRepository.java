@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CompraRepository extends JpaRepository<Compra, Integer> {
     
+    Iterable<Compra> findByIdbarra(Integer idbarra);
+    Iterable<Compra> findByIdbarraIsNull();
+    
 }

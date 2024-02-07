@@ -1,15 +1,27 @@
 package com.transmetales.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="traslado")
 public class Traslado {
     
-    private Integer id;
-    private Integer idbarra;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;   
+    @Column(name="recibido_por")
     private String recibido;
     private Boolean estado;
-    private LocalDate fecha_envio;
-    private LocalDate fecha_recepcion;
+    @Column(name="fecha_envio")
+    private LocalDate fechaEnvio;
+    @Column(name="fecha_recepcion")
+    private LocalDate fechaRecepcion;
 
     public Integer getId() {
         return id;
@@ -17,14 +29,6 @@ public class Traslado {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getIdbarra() {
-        return idbarra;
-    }
-
-    public void setIdbarra(Integer idbarra) {
-        this.idbarra = idbarra;
     }
 
     public String getRecibido() {
@@ -43,25 +47,25 @@ public class Traslado {
         this.estado = estado;
     }
 
-    public LocalDate getFecha_envio() {
-        return fecha_envio;
+    public LocalDate getFechaEnvio() {
+        return fechaEnvio;
     }
 
-    public void setFecha_envio(LocalDate fecha_envio) {
-        this.fecha_envio = fecha_envio;
+    public void setFechaEnvio(LocalDate fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
     }
 
-    public LocalDate getFecha_recepcion() {
-        return fecha_recepcion;
+    public LocalDate getFechaRecepcion() {
+        return fechaRecepcion;
     }
 
-    public void setFecha_recepcion(LocalDate fecha_recepcion) {
-        this.fecha_recepcion = fecha_recepcion;
+    public void setFechaRecepcion(LocalDate fechaRecepcion) {
+        this.fechaRecepcion = fechaRecepcion;
     }
-
+  
     @Override
     public String toString() {
-        return "Traslado{" + "id=" + id + ", idbarra=" + idbarra + ", recibido=" + recibido + ", estado=" + estado + ", fecha_envio=" + fecha_envio + ", fecha_recepcion=" + fecha_recepcion + '}';
+        return "Traslado{" + "id=" + id + ", recibido=" + recibido + ", estado=" + estado + ", fecha_envio=" + fechaEnvio + ", fecha_recepcion=" + fechaRecepcion + '}';
     }
     
     

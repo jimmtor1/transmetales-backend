@@ -1,14 +1,29 @@
 package com.transmetales.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "compra")
 public class Compra {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "id_minero")
     private Integer idminero;
+    @Column(name = "id_barra")
     private Integer idbarra;
     private Short mineral;
     private Float gramos;
+    @Column(name = "ley_plata")
     private Float leyPlata;
-    private Float LeyOro;
+    @Column(name = "ley_oro")
+    private Float leyOro;
     private Float precio;
 
     public Integer getId() {
@@ -60,13 +75,13 @@ public class Compra {
     }
 
     public Float getLeyOro() {
-        return LeyOro;
+        return leyOro;
     }
 
-    public void setLeyOro(Float LeyOro) {
-        this.LeyOro = LeyOro;
+    public void setLeyOro(Float leyOro) {
+        this.leyOro = leyOro;
     }
-
+    
     public Float getPrecio() {
         return precio;
     }
@@ -77,8 +92,7 @@ public class Compra {
 
     @Override
     public String toString() {
-        return "Compra{" + "id=" + id + ", idminero=" + idminero + ", idbarra=" + idbarra + ", mineral=" + mineral + ", gramos=" + gramos + ", leyPlata=" + leyPlata + ", LeyOro=" + LeyOro + ", precio=" + precio + '}';
+        return "Compra{" + "id=" + id + ", idminero=" + idminero + ", idbarra=" + idbarra + ", mineral=" + mineral + ", gramos=" + gramos + ", leyPlata=" + leyPlata + ", LeyOro=" + leyOro + ", precio=" + precio + '}';
     }
-    
-        
+
 }
